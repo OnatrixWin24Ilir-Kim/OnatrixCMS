@@ -1,0 +1,49 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    var rootContent = Umbraco.ContentAtRoot();
+    var siteSettings = rootContent.OfType<Umbraco.Cms.Web.Common.PublishedModels.SiteSettings>().FirstOrDefault();
+
+    var contactAddress = siteSettings?.ContactAddress ?? "Ingen adress angiven";
+    var contactEmail = siteSettings?.ContactEmail ?? "Ingen email angiven";
+    var contactPhone = siteSettings?.ContactPhone ?? "Ingen telefon angiven";
+
+}
+
+<div class="bg-primary">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between py-2">
+        <p class="text-xs text-white m-0">@contactAddress</p>
+        
+        <div class="flex">
+            @if (siteSettings?.PlatformList != null)
+            {
+                foreach (var item in siteSettings.PlatformList)
+                {
+                    if (item.Content is Umbraco.Cms.Web.Common.PublishedModels.SocialMediaItem mediaItem)
+                    {
+                        var platformName = mediaItem.PlatformName?.FirstOrDefault()?.ToLower();
+                        switch (platformName)
+                        {
+                            case "facebook":
+                                <a href="@mediaItem.PlatformAccountUrl" target="_blank" class="flex items-center justify-center p-3 text-base text-white border-l border-white/20">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                break;
+                            case "x":
+                                <a href="@mediaItem.PlatformAccountUrl" target="_blank" class="flex items-center justify-center p-3 text-base text-white border-l border-white/20">
+                                    <i class="fa-brands fa-x-twitter"></i>
+                                </a>
+                                break;
+                            case "linkedin":
+                                <a href="@mediaItem.PlatformAccountUrl" target="_blank" class="flex items-center justify-center p-3 text-base text-white border-l border-white/20">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                                break;
+                        }
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>

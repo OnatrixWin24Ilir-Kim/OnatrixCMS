@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4f5955;
+  --color-secondary: #f2eddc;
+  --color-tertiary: #d9c3a9;
+  --color-text: #535656;
+  --color-note: #9c9ea6;
+  --color-bg-grey: #f7f7f7;
+  --color-footer: #0e0e0e;
+  --color-neutral: #f7f7f7;
+  --color-white-100: #ffffff;
+  --color-border-light: #ececec;
+
+  --font-family-poppins: "Poppins", sans-serif;
+}
+
+body {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-family: var(--font-family-poppins);
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+h3 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+} */
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+h6 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+p {
+  font-size: 1rem;
+}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.team-member-name {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.team-row-small .team-member-name {
+  font-size: 18px;
+}
+
+.team-member-role {
+  font-size: 13px;
+  color: #9c9ea6;
+}
+
+h4.service-card-title {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  color: #4f5955 !important;
+}
+
+.current a {
+  @apply text-secondary;
+}
+
+footer a.footer-link {
+  color: #d9c3a9 !important;
+}
