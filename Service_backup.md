@@ -1,0 +1,58 @@
+            <div class="bg-white w-full min-h-[350px] overflow-hidden border border-border-light">
+                <a href="#" class="block no-underline">
+                    <h4 class="service-card-title p-[1.5rem]">Bonds & Commodities</h4>
+                    <img src="/images/services/services-2.png" class="block w-full h-[220px] object-cover"/>
+                    <p class="rte text-sm p-[1.5rem]">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </a>
+            </div>
+
+            <div class="bg-white w-full min-h-[350px] overflow-hidden border border-border-light">
+                <a href="#" class="block no-underline">
+                    <h4 class="service-card-title p-[1.5rem]">Assurance & Audits</h4>
+                    <img src="/images/services/services-3.png" class="block w-full h-[220px] object-cover"/>
+                    <p class="rte text-sm p-[1.5rem]">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </a>
+            </div>
+
+            <div class="bg-white w-full min-h-[350px] overflow-hidden border border-border-light">
+                <a href="#" class="block no-underline">
+                    <h4 class="service-card-title p-[1.5rem]">Tax and Trusts</h4>
+                    <img src="/images/services/services-4.png" class="block w-full h-[220px] object-cover"/>
+                    <p class="rte text-sm p-[1.5rem]">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </a>
+            </div>
+
+            <div class="bg-white w-full min-h-[350px] overflow-hidden border border-border-light">
+                <a href="#" class="block no-underline">
+                    <h4 class="service-card-title p-[1.5rem]">Financial Advisor</h4>
+                    <img src="/images/services/services-5.png" class="block w-full h-[220px] object-cover"/>
+                    <p class="rte text-sm p-[1.5rem]">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </a>
+            </div>
+
+            <div class="bg-white w-full min-h-[350px] overflow-hidden border border-border-light">
+                <a href="#" class="block no-underline">
+                    <h4 class="service-card-title p-[1.5rem]">Statistic Advisors</h4>
+                    <img src="/images/services/services-6.png" class="block w-full h-[220px] object-cover"/>
+                    <p class="rte text-sm p-[1.5rem]">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </a>
+            </div>
+                    <div class="mt-5 grid grid-cols-3 gap-4">
+            <div class="bg-white w-full min-h-[350px] overflow-hidden border border-border-light">
+                <a href="#" class="block no-underline">
+                    <h4 class="service-card-title p-[1.5rem]">Risk Management</h4>
+                    <img src="/images/services/services-1.png" class="block w-full h-[220px] object-cover"/>
+                    <p class="rte text-sm p-[1.5rem]">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </a>
+            </div>
+                    <div class="mt-5 grid grid-cols-3 gap-4">
+            <div class="bg-white w-full min-h-[350px] overflow-hidden border border-border-light">
+                <a href="#" class="block no-underline">
+                    <h4 class="service-card-title p-[1.5rem]">Risk Management</h4>
+                    <img src="/images/services/services-1.png" class="block w-full h-[220px] object-cover"/>
+                    <p class="rte text-sm p-[1.5rem]">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </a>
+            </div>
+
+
+        </div>
