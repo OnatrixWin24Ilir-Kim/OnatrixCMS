@@ -1,10 +1,44 @@
 @using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPageHeader>
 
+
+@using Umbraco.Cms.Core.PublishedCache
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Cms.Core.Services.Navigation
+
+@inject IPublishedContentCache PublishedContentCache
+@inject IDocumentNavigationQueryService DocumentNavigationQueryService
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+@{ 
+    var selection = Model.Ancestors().ToArray(); 
+    var homePageDisplayName ="Home";
+    var isFirstItem = true;
+}
+
+
+
 <section class="bg-white bg-no-repeat py-16" 
          style="background-image: url('/images/backgrounds/earth-down.png'), url('/images/backgrounds/earth-up.png'); background-position: left bottom, right top;">
     <div class="max-w-7xl mx-auto px-4">
         <h1 class="text-center text-[2.5rem] text-primary font-bold">@Model.PageTitle</h1>
-        <div></div>
+        <div class="flex items-center justify-center gap-2">
+            @if (selection?.Length > 0)
+            {
+                <ul class="flex items-center justify-center gap-2">
+                    @foreach (var item in selection.OrderBy(x => x.Level))
+                    {
+                        var displayName = isFirstItem ? homePageDisplayName : item.Name;
+
+                        <li>
+                            <a class="text-sm no-underline text-primary hover:text-secondary" href="@item.Url(PublishedUrlProvider)">@displayName</a> 
+                            <span class="divider">></span>
+                        </li>
+                        isFirstItem = false;
+                    }
+                    <li class="active">@Model.Name</li>
+                </ul>
+            }
+        </div>
     </div>
 </section>
