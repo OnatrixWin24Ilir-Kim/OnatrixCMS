@@ -1,0 +1,23 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = (BrandItem)Model.Content;
+    var logoUrl = content.BrandLogo?.Url() ?? "";
+    var brandName = content.BrandName ?? "Brand";
+    var brandUrl = content.BrandUrl ?? "";
+    var hasLink = !string.IsNullOrEmpty(brandUrl);
+}
+
+@if (hasLink)
+{
+    <a href="@brandUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="@logoUrl" alt="@brandName" class="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300" />
+    </a>
+}
+else
+{
+    <div class="inline-flex items-center justify-center opacity-60">
+        <img src="@logoUrl" alt="@brandName" class="h-12 md:h-16 w-auto object-contain grayscale" />
+    </div>
+}
