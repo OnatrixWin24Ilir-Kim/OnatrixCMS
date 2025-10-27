@@ -1,17 +1,4 @@
-using Onatrix_CMS;
-
 var builder = WebApplication.CreateBuilder(args);
-
-/*
-// Azure Key Vault
-var keyVaultEndpoint = builder.Configuration["AzureKeyVaultEndpoint"];
-if (!string.IsNullOrEmpty(keyVaultEndpoint))
-{
-    builder.Configuration.AddAzureKeyVault(new Uri(keyVaultEndpoint), new DefaultAzureCredential());
-}
-*/
-
-builder.ConfigureKeyVault();
 
 builder.CreateUmbracoBuilder().AddBackOffice().AddWebsite().AddDeliveryApi().AddComposers().Build();
 
