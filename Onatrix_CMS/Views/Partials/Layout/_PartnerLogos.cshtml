@@ -5,9 +5,14 @@
     var rootContent = Umbraco.ContentAtRoot();
     var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
     var partnerBrands = siteSettings?.PartnerBrands;
+    
+    // Only show on Home Page and Contact Page
+    var showOnPages = new[] { "homePage", "contactPage" };
+    var currentPageType = Model.ContentType.Alias;
+    var shouldShowLogos = showOnPages.Contains(currentPageType);
 }
 
-@if (partnerBrands != null && partnerBrands.Any())
+@if (shouldShowLogos && partnerBrands != null && partnerBrands.Any())
 {
     <section class="partner-logos py-16 mb-8 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
