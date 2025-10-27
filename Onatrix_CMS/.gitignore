@@ -466,3 +466,10 @@ umbraco-package-schema.json
 
 # Packages created from the backoffice (package.xml/package.zip)
 /umbraco/Data/CreatedPackages/
+
+
+
+
+# App Settings
+appsettings-local.json
+Onatrix_CMS/umbraco/TEMP/
