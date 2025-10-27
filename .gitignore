@@ -200,20 +200,9 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
-# Umbraco specific
-**/App_Data/Logs/
-**/App_Data/TEMP/
-**/App_Data/cache/
-**/App_Data/preview/
-**/App_Data/NuGetBackup/
-
-# Umbraco media folder (optional - comment out if you want to commit media)
-# **/media/
-
 # NPM
 node_modules/
 npm-debug.log*
-package-lock.json
 yarn.lock
 
 # MacOS
