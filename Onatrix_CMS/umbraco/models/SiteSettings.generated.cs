@@ -66,6 +66,22 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string ContactEmail => this.Value<string>(_publishedValueFallback, "contactEmail");
 
 		///<summary>
+		/// Contact Person Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("contactPersonImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ContactPersonImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "contactPersonImage");
+
+		///<summary>
+		/// Contact Person Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("contactPersonTitle")]
+		public virtual string ContactPersonTitle => this.Value<string>(_publishedValueFallback, "contactPersonTitle");
+
+		///<summary>
 		/// Phone
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
@@ -112,6 +128,27 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("platformList")]
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel PlatformList => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "platformList");
+
+		///<summary>
+		/// Show Email Adress
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[ImplementPropertyType("showEmailAdress")]
+		public virtual bool ShowEmailAdress => this.Value<bool>(_publishedValueFallback, "showEmailAdress");
+
+		///<summary>
+		/// Show Office Location
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[ImplementPropertyType("showOfficeLocation")]
+		public virtual bool ShowOfficeLocation => this.Value<bool>(_publishedValueFallback, "showOfficeLocation");
+
+		///<summary>
+		/// Show Phone Number
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[ImplementPropertyType("showPhoneNumber")]
+		public virtual bool ShowPhoneNumber => this.Value<bool>(_publishedValueFallback, "showPhoneNumber");
 
 		///<summary>
 		/// Site Logo
