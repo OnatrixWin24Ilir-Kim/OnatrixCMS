@@ -1,0 +1,24 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    var rootContent = Umbraco.ContentAtRoot();
+    var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
+    var partnerBrands = siteSettings?.PartnerBrands;
+}
+
+@if (partnerBrands != null && partnerBrands.Any())
+{
+    <section class="partner-logos py-16 mb-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                @foreach (var block in partnerBrands)
+                {
+                    var data = block.Content;
+                    @await Html.PartialAsync("blocklist/Components/" + data.ContentType.Alias, block)
+                }
+            </div>
+        </div>
+    </section>
+}
+
