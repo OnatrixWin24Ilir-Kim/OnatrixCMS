@@ -1,0 +1,80 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = (ReviewSection)Model.Content;
+    var sectionLabel = content.SectionLabel ?? "";
+    var heading = content.Heading ?? "";
+    var description = content.Description ?? "";
+    var starRating = content.StarRating;
+    var reviewerName = content.ReviewerName ?? "";
+    var companyName = content.CompanyName ?? "";
+    var reviewImage = content.ReviewImage?.Url() ?? "";
+}
+
+<section class="review-section py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div style="display: flex; flex-direction: row; gap: 4rem; align-items: flex-start;">
+            
+            <!-- Review Content - Left Side -->
+            <div style="flex: 1; padding-top: 2rem;">
+                @if (!string.IsNullOrEmpty(sectionLabel))
+                {
+                    <p class="uppercase tracking-wider" style="font-size: 13px; font-weight: 400; color: #d9c3a9; margin-bottom: 1rem; letter-spacing: 0.1em;">
+                        @sectionLabel
+                    </p>
+                }
+
+                @if (!string.IsNullOrEmpty(heading))
+                {
+                    <h2 class="font-bold" style="font-size: 45px; line-height: 1.2; color: #4f5955; margin-bottom: 1.5rem;">
+                        @heading
+                    </h2>
+                }
+
+                @if (!string.IsNullOrEmpty(description))
+                {
+                    <p style="font-size: 16px; line-height: 1.7; color: #9c9ea6; font-style: italic; margin-bottom: 2rem;">
+                        @description
+                    </p>
+                }
+
+                <!-- Star Rating -->
+                @if (starRating > 0)
+                {
+                    <div style="display: flex; gap: 4px; margin-bottom: 1.5rem;">
+                        @for (int i = 0; i < starRating; i++)
+                        {
+                            <span style="font-size: 16px; color: #000;">★</span>
+                        }
+                    </div>
+                }
+
+                <!-- Reviewer Info -->
+                @if (!string.IsNullOrEmpty(reviewerName))
+                {
+                    <p class="font-semibold" style="font-size: 14px; color: #4f5955; margin-bottom: 0.25rem;">
+                        @reviewerName
+                    </p>
+                }
+
+                @if (!string.IsNullOrEmpty(companyName))
+                {
+                    <p class="italic" style="font-size: 14px; color: #4f5955; margin: 0;">
+                        @companyName
+                    </p>
+                }
+            </div>
+
+            <!-- Review Image - Right Side -->
+            @if (!string.IsNullOrEmpty(reviewImage))
+            {
+                <div style="flex: 0 0 52%; max-width: 650px;">
+                    <img src="@reviewImage" 
+                         alt="@reviewerName" 
+                         class="w-full h-auto object-cover" />
+                </div>
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,63 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = (CeoQuote)Model.Content;
+    var quoteText = content.QuoteText ?? "";
+    var ceoImage = content.CeoImage?.Url() ?? "";
+    var ceoName = content.CeoName ?? "";
+    var bodyContent = content.BodyContent?.ToString() ?? "";
+}
+
+<section class="ceo-quote-section py-16 md:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div style="display: flex; flex-direction: row; gap: 3rem; align-items: flex-start;">
+            
+            <!-- CEO Image - Smaller, Left Side -->
+            <div style="flex: 0 0 25%; max-width: 370px; display: flex; flex-direction: column;">
+                @if (!string.IsNullOrEmpty(ceoImage))
+                {
+                    <img src="@ceoImage" 
+                         alt="@ceoName" 
+                         class="w-full h-auto object-cover" 
+                         style="margin-bottom: 1rem;" />
+                    
+                    @if (!string.IsNullOrEmpty(ceoName))
+                    {
+                        <p class="text-[#535656]" style="font-size: 16px; margin: 0;">@ceoName</p>
+                    }
+                }
+            </div>
+
+            <!-- Quote and Body Content - Takes More Space -->
+            <div style="flex: 1;">
+                @if (!string.IsNullOrEmpty(quoteText))
+                {
+                    <blockquote style="margin: 0 0 1.5rem 0;">
+                        <p class="italic text-[#535656]" style="font-size: 20px; line-height: 1.6; margin: 0;">
+                            "@quoteText"
+                        </p>
+                    </blockquote>
+                }
+
+                @if (!string.IsNullOrEmpty(bodyContent))
+                {
+                    <div class="text-content text-[#535656]" style="font-size: 14px; line-height: 1.8;">
+                        @Html.Raw(bodyContent)
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Ensure paragraphs have proper spacing */
+    .text-content p {
+        margin-bottom: 1rem;
+    }
+    
+    .text-content p:last-child {
+        margin-bottom: 0;
+    }
+</style>
