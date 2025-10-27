@@ -1,6 +1,15 @@
 using Onatrix_CMS;
 
-WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
+
+/*
+// Azure Key Vault
+var keyVaultEndpoint = builder.Configuration["AzureKeyVaultEndpoint"];
+if (!string.IsNullOrEmpty(keyVaultEndpoint))
+{
+    builder.Configuration.AddAzureKeyVault(new Uri(keyVaultEndpoint), new DefaultAzureCredential());
+}
+*/
 
 builder.ConfigureKeyVault();
 
