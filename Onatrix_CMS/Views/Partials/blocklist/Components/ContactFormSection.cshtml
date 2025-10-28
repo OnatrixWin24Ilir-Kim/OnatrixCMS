@@ -13,11 +13,11 @@
     <!-- Google Maps Background -->
     @if (!string.IsNullOrEmpty(googleMapsEmbed))
     {
-        <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 z-10 pointer-events-auto">
             @Html.Raw(googleMapsEmbed)
         </div>
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-white/40 z-0"></div>
+        <div class="absolute inset-0 bg-white/40 z-0 pointer-events-none"></div>
     }
     
     <div class="max-w-7xl mx-auto px-4 relative z-10">
