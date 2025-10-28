@@ -1,0 +1,20 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = (StatItem)Model.Content;
+    var statNumber = content.StatNumber ?? "";
+    var statDescription = content.StatDescription ?? "";
+}
+
+<div class="stat-item">
+    @if (!string.IsNullOrEmpty(statNumber))
+    {
+        <span class="stat-number">@statNumber</span>
+    }
+
+    @if (!string.IsNullOrEmpty(statDescription))
+    {
+        <p class="stat-description">@statDescription</p>
+    }
+</div>
