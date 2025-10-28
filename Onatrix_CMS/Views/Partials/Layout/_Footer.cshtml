@@ -6,13 +6,13 @@
     var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
 }
 
-<footer class="footer py-[4rem]">
-    <div class="max-w-7xl mx-auto px-4 text-center text-sm">
-        <p class="m-0">
+<footer class="footer">
+    <div class="footer-container">
+        <p class="footer-text">
             @siteSettings?.FooterText 
             @if (!string.IsNullOrEmpty(siteSettings?.FooterLinkUrl))
             {
-                <a href="@siteSettings.FooterLinkUrl" target="_blank" class="footer-link hover:underline">@siteSettings?.FooterLinkText</a>
+                <a href="@siteSettings.FooterLinkUrl" target="_blank" class="footer-link">@siteSettings?.FooterLinkText</a>
             }
         </p>
     </div>

@@ -1,0 +1,84 @@
+/* ===================================
+   CEO Quote Section
+   =================================== */
+
+.ceo-quote-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .ceo-quote-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.ceo-quote-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.ceo-quote-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: stretch;
+}
+
+.ceo-image-column {
+  flex: 0 0 30%;
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ceo-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.ceo-name {
+  color: #535656;
+  font-size: 16px !important;
+  font-style: italic;
+  margin: 0;
+}
+
+.ceo-content-column {
+  flex: 1;
+}
+
+.ceo-quote {
+  margin: 0 0 1.5rem 0;
+}
+
+.ceo-quote-text {
+  font-style: italic;
+  color: #535656;
+  font-size: 20px !important;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ceo-body-content {
+  color: #535656;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.ceo-body-content p {
+  font-size: 14px !important;
+  margin-bottom: 1rem;
+}
+
+.ceo-body-content p:last-child {
+  margin-bottom: 0;
+}
