@@ -225,3 +225,7 @@ $RECYCLE.BIN/
 GUIDE_*.md
 Onatrix_CMS/umbraco/Data/TEMP/
 Onatrix_CMS/umbraco/Data/Umbraco.sqlite.db
+Onatrix_CMS/appsettings.Development.json
+Onatrix_CMS/appsettings.json
+Onatrix_CMS/appsettings.json
+Onatrix_CMS/appsettings.json
