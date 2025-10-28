@@ -9,87 +9,86 @@
     var googleMapsEmbed = content.GoogleMapsEmbed ?? "";
 }
 
-<section class="relative py-20">
+<section class="contact-form-section">
     <!-- Google Maps Background -->
     @if (!string.IsNullOrEmpty(googleMapsEmbed))
     {
-        <div class="absolute inset-0 z-10 pointer-events-auto">
+        <div class="contact-map-background">
             @Html.Raw(googleMapsEmbed)
         </div>
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-white/40 z-0 pointer-events-none"></div>
+        <div class="contact-map-overlay"></div>
     }
     
-    <div class="max-w-7xl mx-auto px-4 relative z-10">
-        <!-- Vit card med formulär -->
-        <div class="bg-white max-w-2xl mx-auto p-12 shadow-lg">
+    <div class="contact-form-container">
+        <!-- Form card -->
+        <div class="contact-form-card">
             
             <!-- Header -->
-            <div class="text-center mb-8">
-                <p class="text-secondary text-sm font-semibold uppercase tracking-wider mb-2">
+            <div class="contact-form-header">
+                <p class="contact-form-subtitle">
                     @formSubtitle
                 </p>
-                <h2 class="text-4xl font-bold text-primary mb-4">
+                <h2 class="contact-form-title">
                     @formTitle
                 </h2>
                 @if (!string.IsNullOrEmpty(formDescription))
                 {
-                    <p class="text-[#9c9ea6] text-sm">
+                    <p class="contact-form-description">
                         @formDescription
                     </p>
                 }
             </div>
 
-            <!-- Formulär -->
+            <!-- Form -->
             <form method="post" class="contact-form">
-                <div class="space-y-6">
+                <div class="contact-form-fields">
                     
-                    <!-- Name och Phone på samma rad -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
+                    <!-- Name and Phone on same row -->
+                    <div class="contact-form-row">
+                        <div class="contact-form-group">
                             <input type="text" 
                                    name="Name" 
                                    placeholder="Name" 
                                    required
-                                   class="w-full px-4 py-3 border border-gray-200 focus:border-secondary focus:outline-none" />
+                                   class="contact-form-input" />
                         </div>
-                        <div>
+                        <div class="contact-form-group">
                             <input type="tel" 
                                    name="Phone" 
                                    placeholder="Phone" 
                                    required
-                                   class="w-full px-4 py-3 border border-gray-200 focus:border-secondary focus:outline-none" />
+                                   class="contact-form-input" />
                         </div>
                     </div>
 
-                    <!-- Email Address -->
-                    <div>
-                        <input type="email" 
-                               name="Email" 
-                               placeholder="Email address" 
-                               required
-                               class="w-full px-4 py-3 border border-gray-200 focus:border-secondary focus:outline-none" />
-                    </div>
-
-                    <!-- Financial consulting dropdown -->
-                    <div>
-                        <select name="Service" 
-                                required
-                                class="w-full px-4 py-3 border border-gray-200 focus:border-secondary focus:outline-none text-[#9c9ea6]">
-                            <option value="">Financial consulting</option>
-                            <option value="Risk Management">Risk Management</option>
-                            <option value="Bonds & Commodities">Bonds & Commodities</option>
-                            <option value="Assurance & Audits">Assurance & Audits</option>
-                            <option value="Tax and Trusts">Tax and Trusts</option>
-                            <option value="Financial Advisor">Financial Advisor</option>
-                            <option value="Statistic Advisors">Statistic Advisors</option>
-                        </select>
+                    <!-- Email and Service on same row -->
+                    <div class="contact-form-row">
+                        <div class="contact-form-group">
+                            <input type="email" 
+                                   name="Email" 
+                                   placeholder="Email address" 
+                                   required
+                                   class="contact-form-input" />
+                        </div>
+                        <div class="contact-form-group">
+                            <select name="Service" 
+                                    required
+                                    class="contact-form-select">
+                                <option value="">Financial consulting</option>
+                                <option value="Risk Management">Risk Management</option>
+                                <option value="Bonds & Commodities">Bonds & Commodities</option>
+                                <option value="Assurance & Audits">Assurance & Audits</option>
+                                <option value="Tax and Trusts">Tax and Trusts</option>
+                                <option value="Financial Advisor">Financial Advisor</option>
+                                <option value="Statistic Advisors">Statistic Advisors</option>
+                            </select>
+                        </div>
                     </div>
 
                     <!-- Submit button -->
-                    <div>
-                        <button type="submit" 
-                                class="w-full bg-primary text-white py-4 font-semibold hover:bg-opacity-90 transition-all duration-300">
+                    <div class="contact-form-group">
+                        <button type="submit" class="contact-form-submit">
                             Submit
                         </button>
                     </div>
