@@ -40,24 +40,8 @@
                 }
             </div>
 
-            <!-- Success/Error messages -->
-            @if (TempData["Success"] != null)
-            {
-                <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded mb-6">
-                    @TempData["Success"]
-                </div>
-            }
-
-            @if (TempData["Error"] != null)
-            {
-                <div class="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded mb-6">
-                    @TempData["Error"]
-                </div>
-            }
-
             <!-- Formulär -->
-            @using (Html.BeginUmbracoForm("SubmitContactForm", "ContactForm", FormMethod.Post))
-            {
+            <form method="post" class="contact-form">
                 <div class="space-y-6">
                     
                     <!-- Name och Phone på samma rad -->
@@ -111,7 +95,7 @@
                     </div>
 
                 </div>
-            }
+            </form>
 
         </div>
     </div>
