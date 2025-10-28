@@ -1,6 +1,14 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.CreateUmbracoBuilder().AddBackOffice().AddWebsite().AddDeliveryApi().AddComposers().Build();
+builder
+    .CreateUmbracoBuilder()
+    .AddBackOffice()
+    .AddWebsite()
+    .AddDeliveryApi()
+    .AddComposers()
+    .AddAzureBlobMediaFileSystem()
+    .AddAzureBlobImageSharpCache()
+    .Build();
 
 WebApplication app = builder.Build();
 
