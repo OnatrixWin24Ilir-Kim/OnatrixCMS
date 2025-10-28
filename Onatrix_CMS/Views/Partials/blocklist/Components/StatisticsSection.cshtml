@@ -1,0 +1,59 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = (StatisticsSection)Model.Content;
+    var sectionLabel = content.SectionLabel ?? "";
+    var heading = content.Heading ?? "";
+    var statistics = content.Statistics;
+    var backgroundPatternImage = content.BackgroundPatternImage?.Url() ?? "";
+    var featuredImage = content.FeaturedImage?.Url() ?? "";
+    var backgroundColor = content.BackgroundColor ?? "#4f5955";
+}
+
+<section class="statistics-section" style="background-color: @backgroundColor;">
+    @if (!string.IsNullOrEmpty(backgroundPatternImage))
+    {
+        <div class="statistics-background-pattern" style="background-image: url('@backgroundPatternImage');"></div>
+    }
+
+    <div class="statistics-container">
+        <!-- Section Header -->
+        <div class="statistics-header">
+            @if (!string.IsNullOrEmpty(sectionLabel))
+            {
+                <p class="statistics-label">
+                    @sectionLabel
+                </p>
+            }
+
+            @if (!string.IsNullOrEmpty(heading))
+            {
+                <h2 class="statistics-heading">
+                    @heading
+                </h2>
+            }
+        </div>
+
+        <!-- Statistics Grid -->
+        @if (statistics != null && statistics.Any())
+        {
+            <div class="statistics-grid">
+                @foreach (var block in statistics)
+                {
+                    var data = block.Content;
+                    @await Html.PartialAsync("blocklist/Components/" + data.ContentType.Alias, block)
+                }
+            </div>
+        }
+
+        <!-- Featured Image -->
+        @if (!string.IsNullOrEmpty(featuredImage))
+        {
+            <div class="statistics-image-wrapper">
+                <img src="@featuredImage"
+                     alt="@heading" />
+            </div>
+        }
+    </div>
+</section>
