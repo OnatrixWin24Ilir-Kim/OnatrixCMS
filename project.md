@@ -13,16 +13,13 @@ Designen behöver inte vara pixelperfekt, men den ska tydligt efterlikna origina
 OBS! En uppdaterad version av designfilen finns tillgänglig.
 Se till att ladda ner den senaste innan du börjar arbeta.
 
-
 Nedan följer kriterierna för respektive betygsnivå. Läs igenom noggrant så du vet vilka krav som gäller för Godkänt (G) respektive Väl godkänt (VG).
-
 
 Gemensamma krav för både G och VG
 Webbplatsen ska vara publicerad på Azure med en fungerande databaslösning och vara tillgänglig vid rättning.
 
 Det ska finnas en användare med fullständiga rättigheter:
 E-post: hans@onatrix.com Lösenord: BytMig123!
-
 
 Kriterier för Godkänt (G)
 Webbplatsen följer designfilens samtliga sidor, sektioner och innehållsstruktur, men behöver inte vara responsiv.
@@ -33,7 +30,6 @@ Dynamisk navigering ska tillämpas och hämta sidor från innehållsträdet.
 Site Settings behöver inte användas, det är tillåtet att hårdkoda globala delar (till exempel logotyp, kontaktinformation, sociala länkar).
 Paginering/Sliders är frivilligt.
 Sökfunktion i headern behöver inte vara fungerande.
-
 
 Kriterier för Väl godkänt (VG)
 Webbplatsen följer designfilens samtliga sidor, sektioner, innehållsstruktur och är responsiv.

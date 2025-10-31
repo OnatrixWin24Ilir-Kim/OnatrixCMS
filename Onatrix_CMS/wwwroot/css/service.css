@@ -1,0 +1,114 @@
+/* ===================================
+   Email Subscription Form Section
+   =================================== */
+
+.email-subscription-section {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.email-subscription-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  max-height: 220px;
+  align-items: center;
+}
+
+/* Form Card */
+.email-subscription-card {
+  background-color: #4f5955;
+  padding: 2.5rem;
+  border-radius: 4px;
+  width: 306.158px;
+}
+
+.email-subscription-heading {
+  font-size: 22px;
+  font-weight: 600;
+  color: #f2eddc;
+  margin: 0 0 0.75rem 0;
+}
+
+.email-subscription-description {
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Email Form Input */
+.email-subscription-form {
+  width: 100%;
+}
+
+.email-subscription-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.email-subscription-input {
+  width: 100%;
+  padding: 0.875rem 3rem 0.875rem 1rem;
+  font-size: 14px;
+  color: #535656;
+  border: none;
+  border-radius: 3px;
+  background-color: #ffffff;
+  outline: none;
+  font-style: italic;
+}
+
+.email-subscription-input::placeholder {
+  color: #9c9ea6;
+  font-style: italic;
+}
+
+.email-subscription-input:focus {
+  outline: 2px solid #f2eddc;
+  outline-offset: 2px;
+}
+
+/* Submit Button (Envelope Icon) */
+.email-subscription-submit-btn {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.email-subscription-submit-btn:hover {
+  opacity: 0.7;
+}
+
+.email-subscription-icon {
+  width: 20px;
+  height: 20px;
+  color: #535656;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .email-subscription-section {
+    padding: 3rem 0;
+  }
+
+  .email-subscription-heading {
+    font-size: 1.25rem;
+  }
+
+  .email-subscription-card {
+    padding: 2rem;
+    max-width: 100%;
+  }
+}
