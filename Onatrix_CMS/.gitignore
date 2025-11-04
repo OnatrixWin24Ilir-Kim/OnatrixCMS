@@ -472,4 +472,20 @@ umbraco-package-schema.json
 
 # App Settings
 appsettings-local.json
-Onatrix_CMS/umbraco/TEMP/
+appsettings.Development.json
+appsettings.json
+
+# Umbraco specific
+umbraco/TEMP/
+umbraco/Data/TEMP/
+umbraco/Data/Umbraco.sqlite.db
+umbraco/Data/Umbraco.sqlite.db-shm
+umbraco/Data/Umbraco.sqlite.db-wal
+
+# Guides and documentation
+GUIDE_*.md
+SERVICE_*.md
+ABOUT_*.md
+
+# NPM
+package-lock.json
