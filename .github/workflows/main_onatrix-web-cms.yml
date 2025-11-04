@@ -62,4 +62,3 @@ jobs:
           app-name: "onatrix-web-cms"
           slot-name: "Production"
           package: .
-          clean: true

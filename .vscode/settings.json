@@ -1,7 +1,9 @@
 {
   "cSpell.words": [
     "appsettings",
+    "AZUREAPPSERVICE",
     "buildhelp",
+    "CLIENTID",
     "csdef",
     "dbmdl",
     "dbproj",
@@ -13,6 +15,7 @@
     "esult",
     "Installshield",
     "ipch",
+    "myapp",
     "ntvs",
     "nunit",
     "Onatrix",
@@ -23,7 +26,9 @@
     "publishsettings",
     "schemaview",
     "Silverlight",
+    "SUBSCRIPTIONID",
     "svclog",
+    "TENANTID",
     "tyle",
     "ublish",
     "uild",
@@ -34,6 +39,7 @@
     "vspscc",
     "vspx",
     "vssscc",
+    "webapps",
     "xpress"
   ]
 }
