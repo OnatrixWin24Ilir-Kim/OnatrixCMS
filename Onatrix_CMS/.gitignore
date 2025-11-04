@@ -244,6 +244,11 @@ umbraco/Data/Umbraco.sqlite.db-wal
 GUIDE_*.md
 SERVICE_*.md
 ABOUT_*.md
+UMBRACO_*.md
+
+# Database files (root level)
+Umbraco.sqlite.db
+identifier.sqlite
 
 # NPM
 package-lock.json
