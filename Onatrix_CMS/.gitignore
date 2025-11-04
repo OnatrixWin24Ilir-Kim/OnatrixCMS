@@ -226,6 +226,5 @@ GUIDE_*.md
 umbraco/Data/TEMP/
 umbraco/Data/Umbraco.sqlite.db
 appsettings.Development.json
-appsettings.json
 
 
