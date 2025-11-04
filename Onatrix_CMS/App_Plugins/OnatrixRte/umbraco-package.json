@@ -19,7 +19,7 @@
             "class": "text-primary"
           },
           "appearance": {
-            "style": "background-color:#4F5955; color:#fff; padding:5px;"
+            "style": "background-color: var(--color-primary); color: var(--color-white-100); padding:5px;"
           }
         },
         {
@@ -29,7 +29,7 @@
             "class": "text-secondary"
           },
           "appearance": {
-            "style": "background-color:#D9C3A9; color:#fff; padding:5px;"
+            "style": "background-color: var(--color-secondary); color: var(--color-text); padding:5px;"
           }
         },
         {
@@ -39,7 +39,7 @@
             "class": "text-body-text"
           },
           "appearance": {
-            "style": "background-color:#535656; color:#fff; padding:5px;"
+            "style": "background-color: var(--color-text); color: var(--color-white-100); padding:5px;"
           }
         },
         {
@@ -49,7 +49,7 @@
             "class": "text-body-text-100"
           },
           "appearance": {
-            "style": "background-color:#999999; color:#fff; padding:5px;"
+            "style": "background-color: var(--color-note); color: var(--color-white-100); padding:5px;"
           }
         }
       ]
@@ -204,6 +204,53 @@
               "data": {
                 "tag": "p",
                 "class": "text-rte-xs font-bold"
+              },
+              "appearance": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tiptapToolbarExtension",
+      "kind": "styleMenu",
+      "alias": "Onatrix.Tiptap.StyleMenu",
+      "name": "Onatrix Tiptap Style Menu",
+      "meta": {
+        "alias": "onatrixStyleMenu",
+        "icon": "icon-palette",
+        "label": "Onatrix styles"
+      },
+      "items": [
+        {
+          "label": "Images",
+          "items": [
+            {
+              "label": "Full width",
+              "data": {
+                "tag": "img",
+                "class": "w-full h-auto"
+              },
+              "appearance": {}
+            }
+          ]
+        },
+        {
+          "label": "Bullet lists",
+          "items": [
+            {
+              "label": "Circle",
+              "data": {
+                "tag": "ul",
+                "class": "list-circle"
+              },
+              "appearance": {}
+            },
+            {
+              "label": "Numbered",
+              "data": {
+                "tag": "ol",
+                "class": "list-decimal"
               },
               "appearance": {}
             }

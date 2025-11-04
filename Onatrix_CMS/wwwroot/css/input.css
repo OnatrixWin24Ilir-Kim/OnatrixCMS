@@ -1,4 +1,14 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+/* ===================================
+   Import other CSS files
+   =================================== */
+@import './home.css';
+@import './contact.css';
+@import './layout.css';
+@import './about.css';
+@import './service.css';
+@import './rich-editor.css';
 
 @theme {
   --color-primary: #4f5955;
@@ -12,13 +22,44 @@
   --color-white-100: #ffffff;
   --color-border-light: #ececec;
 
-  --font-family-poppins: "Poppins", sans-serif;
+  --font-family-poppins: 'Poppins', sans-serif;
+
+  --text-rte-xl-rich-editor: 4.375rem;
+  --text-rte-lg-rich-editor: 2.5rem;
+  --text-rte-md-rich-editor: 1.25rem;
+  --text-rte-sm-rich-editor: 1rem;
+  --text-rte-xs-rich-editor: 0.875rem;
 }
 
 body {
   color: var(--color-text);
   font-size: 0.875rem;
   font-family: var(--font-family-poppins);
+}
+
+/* ===================================
+   Fonts
+   =================================== */
+
+.text-rte-xl {
+  padding: 1rem 0;
+  font-size: var(--text-rte-xl-rich-editor);
+}
+.text-rte-lg {
+  padding: 1rem 0;
+  font-size: var(--text-rte-lg-rich-editor);
+}
+.text-rte-md {
+  padding: 1rem 0;
+  font-size: var(--text-rte-md-rich-editor);
+}
+.text-rte-sm {
+  padding: 1rem 0;
+  font-size: var(--text-rte-sm-rich-editor);
+}
+.text-rte-xs {
+  padding: 1rem 0;
+  font-size: var(--text-rte-xs-rich-editor);
 }
 
 .hero-title {
@@ -64,9 +105,13 @@ h6 {
   color: var(--color-primary);
 }
 
-p {
-  font-size: 1rem;
+p:not(:empty) {
+  margin-bottom: 1rem;
 }
+
+/* ===================================
+   Layout & Other shit :)
+   =================================== */
 
 .content {
   margin-left: auto;

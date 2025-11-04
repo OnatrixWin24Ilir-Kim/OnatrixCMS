@@ -1,0 +1,48 @@
+.rte-ul-secondary {
+  background-color: var(--color-tertiary);
+  color: var(--color-white-100);
+  padding: 1rem;
+  list-style-position: inside;
+}
+
+.rte-ul-secondary li::marker {
+  color: var(--color-white-100);
+}
+
+.list-circle {
+  list-style-type: disc;
+  list-style-position: outside;
+  padding-left: 1.5rem;
+}
+
+.list-decimal {
+  list-style-type: decimal;
+  list-style-position: outside;
+  padding-left: 1.5rem;
+}
+
+.list-circle li p,
+.list-decimal li p {
+  display: inline;
+}
+
+.list-circle li::marker,
+.list-decimal li::marker {
+  color: var(--color-tertiary);
+}
+
+.rte-ul-tertiary {
+  list-style-position: outside;
+  padding-left: 1.5rem; /* Adjust as needed for alignment */
+}
+
+.rte-ul-tertiary li::marker {
+  color: var(--color-tertiary);
+}
+
+.rte-ul-secondary li,
+.list-circle li,
+.list-decimal li,
+.rte-ul-tertiary li {
+  padding-bottom: 1rem;
+}
