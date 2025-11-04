@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "appservice",
     "appsettings",
     "AZUREAPPSERVICE",
     "buildhelp",
@@ -15,6 +16,7 @@
     "esult",
     "Installshield",
     "ipch",
+    "MSDEPLOY",
     "myapp",
     "ntvs",
     "nunit",
@@ -40,6 +42,7 @@
     "vspx",
     "vssscc",
     "webapps",
+    "wwwroot",
     "xpress"
   ]
 }
