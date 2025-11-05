@@ -29,10 +29,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="App_Plugins\OnatrixRte\umbraco-package.json" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Include="wwwroot\App_Data\ParameterLogs\Umbraco.Cms.Api.Management.Controllers.Document.PublishDocumentController_PublishDocumentRequestModel.log" />
       <None Include="wwwroot\App_Data\ParameterLogs\Umbraco.Cms.Api.Management.Controllers.Document.UpdateDocumentController_ValidateUpdateDocumentRequestModel.log" />
     </ItemGroup>
