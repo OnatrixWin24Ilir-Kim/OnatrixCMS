@@ -1,0 +1,80 @@
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    var rootContent = Umbraco.ContentAtRoot();
+    var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
+    
+    // Only show on ServiceDetail pages
+    var currentPageType = Model.ContentType.Alias;
+    var shouldShowForm = currentPageType == "serviceDetail";
+    
+    // Get form settings from site settings or use defaults
+    var formTitle = siteSettings?.QuestionFormTitle ?? "Have a question about this service?";
+    var showForm = siteSettings?.ShowQuestionForm ?? true;
+}
+
+@if (shouldShowForm && showForm)
+{
+    <section class="question-form-section">
+        <div class="question-form-container">
+            <h3 class="question-form-title">@formTitle</h3>
+            
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="question-form-success">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+            
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="question-form-error">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+            
+            <form method="post" action="@Url.SurfaceAction("SubmitQuestion", "ContactSurface")" class="question-form">
+                @Html.AntiForgeryToken()
+                
+                <div class="question-form-row">
+                    <div class="question-form-field">
+                        <input type="text" 
+                               id="name" 
+                               name="name" 
+                               class="question-form-input" 
+                               placeholder="Name"
+                               required />
+                        @Html.ValidationMessage("name", "", new { @class = "field-validation-error" })
+                    </div>
+                    
+                    <div class="question-form-field">
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               class="question-form-input" 
+                               placeholder="Email"
+                               required />
+                        @Html.ValidationMessage("email", "", new { @class = "field-validation-error" })
+                    </div>
+                </div>
+                
+                <div class="question-form-field">
+                    <textarea id="question" 
+                              name="question" 
+                              class="question-form-textarea"
+                              placeholder="Question"
+                              rows="6"
+                              required></textarea>
+                    @Html.ValidationMessage("question", "", new { @class = "field-validation-error" })
+                </div>
+                
+                <div>
+                    <button type="submit" class="question-form-submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+}

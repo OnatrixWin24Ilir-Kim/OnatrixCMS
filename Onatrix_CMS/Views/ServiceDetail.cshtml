@@ -1,4 +1,4 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ServiceDetail>
 @{
 	Layout = "mainLayout.cshtml";
@@ -21,7 +21,21 @@
 						@Html.Raw(Model.ServiceDetailBody)
 					</div>
 				}
+				
+
 			</div>
+
 		</div>
 	</div>
+		            
 </section>
+
+
+
+@* Question Form Section *@
+<partial name="Partials/Forms/_QuestionForm" />
+
+
+
+@* Contact Person Section *@
+<partial name="Partials/Layout/_ContactPerson" />
