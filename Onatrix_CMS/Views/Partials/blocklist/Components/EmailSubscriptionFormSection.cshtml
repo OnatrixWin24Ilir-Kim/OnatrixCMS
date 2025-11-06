@@ -1,3 +1,4 @@
+@using Onatrix_CMS.ViewModels
 @using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
 
@@ -20,23 +21,26 @@
                 <p class="email-subscription-description">@formDescription</p>
             }
 
-            <form class="email-subscription-form" method="post" action="/umbraco/surface/emailsubscription/subscribe">
-                @Html.AntiForgeryToken()
 
-                <div class="email-subscription-input-wrapper">
-                    <input type="email"
-                           name="email"
-                           placeholder="E-mail address"
-                           required
-                           class="email-subscription-input" />
-                    <button type="submit" class="email-subscription-submit-btn" aria-label="Submit">
-                        <svg class="email-subscription-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                        </svg>
-                    </button>
-                </div>
-            </form>
+            <!-- Form -->
+            <partial name="Forms/_EmailForm" model="new CallBackFormEmailViewModel()"/>
+
+            <div class="mt-8">
+                @if (TempData["FormSuccessEmail"] != null)
+                {
+                    <!-- Display Success -->
+                    <div class="bg-green-50 text-green-700 p-4 mx-8 rounded-md">
+                        @TempData["FormSuccessEmail"]
+                    </div>
+                }
+                else if (TempData["FormError"] != null)
+                {
+                    <!-- Display Error -->
+                    <div class="bg-red-50 text-red-700 p-4 mx-8 rounded-md">
+                        @TempData["FormErrorEmail"]
+                    </div>
+                }
+            </div>
         </div>
     </div>
 </section>

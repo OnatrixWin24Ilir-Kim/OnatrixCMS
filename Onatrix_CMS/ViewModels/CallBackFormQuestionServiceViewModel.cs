@@ -2,7 +2,7 @@
 
 namespace Onatrix_CMS.ViewModels;
 
-public class CallBackFormQuestionServiceModelView
+public class CallBackFormQuestionServiceViewModel
 {
     [Required(ErrorMessage = "Name is required")]
     [Display(Name = "Name")]
@@ -16,7 +16,7 @@ public class CallBackFormQuestionServiceModelView
         ErrorMessage = "Please enter a valid email address"
     )]
     [StringLength(100, ErrorMessage = "Email must be less than 100 characters")]
-    public string Email { get; init; } = null!;
+    public string QuestionEmail { get; init; } = null!;
 
     [Required(ErrorMessage = "Question is required")]
     [MinLength(6, ErrorMessage = "Question must be at least 6 characters")]
