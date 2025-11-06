@@ -1,0 +1,56 @@
+@using Microsoft.AspNetCore.Components.Forms
+@model Onatrix_CMS.ViewModels.CallbackFormViewModel
+
+@using (Html.BeginUmbracoForm(
+            "HandleCallBackForm", 
+            "Form",
+            FormMethod.Post, 
+            new
+            {
+                novalidate = true, 
+                Id="callBackForm",
+                Class="callback-form submit-form",
+     
+                
+            }))
+{
+    <!-- Name -->
+    <div class="form-group">
+        <label class="form-label sr-only" asp-for="Name"></label>
+        <input asp-for="Name" type="text" class="form-input"
+               placeholder="@Html.DisplayNameFor(x => x.Name)" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <!-- Email -->
+    <div class="form-group">
+        <label class="form-label sr-only" asp-for="Email"></label>
+        <input asp-for="Email" type="text" class="form-input"
+               placeholder="@Html.DisplayNameFor(x => x.Email)" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <!-- Phone -->
+    <div class="form-group">
+        <label class="form-label sr-only" asp-for="Phone"></label>
+        <input asp-for="Phone" type="text" class="form-input"
+               placeholder="@Html.DisplayNameFor(x => x.Phone)" />
+        <span asp-validation-for="Phone"></span>
+    </div>    
+    <div class="form-group">
+        <label class="form-label sr-only" asp-for="SelectedOption">Service</label>
+        <select id="service" asp-for="SelectedOption" class="form-select">
+            <option value="">Financial consulting</option>
+            <option value="risk-management">Risk Management</option>
+            <option value="bonds-commodities">Bonds & Commodities</option>
+            <option value="assurance-audits">Assurance & Audits</option>
+            <option value="tax-trusts">Tax and Trusts</option>
+            <option value="financial-advisor">Financial Advisor</option>
+            <option value="statistic-advisors">Statistic Advisors</option>
+        </select>
+        <span asp-validation-for="SelectedOption"></span>
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" class="form-submit">Submit</button>
+    </div> 
+    
+}
