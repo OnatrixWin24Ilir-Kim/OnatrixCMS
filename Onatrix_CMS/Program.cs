@@ -1,3 +1,5 @@
+using Onatrix_CMS.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder
@@ -9,6 +11,8 @@ builder
     .AddAzureBlobMediaFileSystem()
     .AddAzureBlobImageSharpCache()
     .Build();
+
+builder.Services.AddScoped<FormSubmissionsServices>();
 
 WebApplication app = builder.Build();
 
