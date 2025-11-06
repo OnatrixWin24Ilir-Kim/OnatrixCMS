@@ -1,4 +1,5 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Onatrix_CMS.ViewModels
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
 
 @{
@@ -39,62 +40,26 @@
                     </p>
                 }
             </div>
-
+            
             <!-- Form -->
-            <form method="post" class="contact-form">
-                <div class="contact-form-fields">
-                    
-                    <!-- Name and Phone on same row -->
-                    <div class="contact-form-row">
-                        <div class="contact-form-group">
-                            <input type="text" 
-                                   name="Name" 
-                                   placeholder="Name" 
-                                   required
-                                   class="contact-form-input" />
-                        </div>
-                        <div class="contact-form-group">
-                            <input type="tel" 
-                                   name="Phone" 
-                                   placeholder="Phone" 
-                                   required
-                                   class="contact-form-input" />
-                        </div>
-                    </div>
+            <partial name="Forms/_ContactForm" model="new CallbackFormViewModel()"/>
 
-                    <!-- Email and Service on same row -->
-                    <div class="contact-form-row">
-                        <div class="contact-form-group">
-                            <input type="email" 
-                                   name="Email" 
-                                   placeholder="Email address" 
-                                   required
-                                   class="contact-form-input" />
-                        </div>
-                        <div class="contact-form-group">
-                            <select name="Service" 
-                                    required
-                                    class="contact-form-select">
-                                <option value="">Financial consulting</option>
-                                <option value="Risk Management">Risk Management</option>
-                                <option value="Bonds & Commodities">Bonds & Commodities</option>
-                                <option value="Assurance & Audits">Assurance & Audits</option>
-                                <option value="Tax and Trusts">Tax and Trusts</option>
-                                <option value="Financial Advisor">Financial Advisor</option>
-                                <option value="Statistic Advisors">Statistic Advisors</option>
-                            </select>
-                        </div>
+            <div class="mt-8">
+                @if (TempData["FormSuccess"] != null)
+                {
+                    <!-- Display Success -->
+                    <div class="bg-green-50 text-green-700 p-4 mx-8 rounded-md">
+                        @TempData["FormSuccess"]
                     </div>
-
-                    <!-- Submit button -->
-                    <div class="contact-form-group">
-                        <button type="submit" class="contact-form-submit">
-                            Submit
-                        </button>
+                }
+                else if (TempData["FormError"] != null)
+                {
+                    <!-- Display Error -->
+                    <div class="bg-red-50 text-red-700 p-4 mx-8 rounded-md">
+                        @TempData["FormError"]
                     </div>
-
-                </div>
-            </form>
+                }
+            </div>
 
         </div>
     </div>
