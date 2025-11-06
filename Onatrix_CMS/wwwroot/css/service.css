@@ -271,5 +271,38 @@
   display: block;
 }
 /* ===================================
-   Service Card Section
+    Pagination Section
    =================================== */
+.pagination-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.pagination-link {
+  padding: 0.5rem 1rem;
+  color: #4f5955;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.pagination-link:hover:not(.pagination-disabled):not(.pagination-active) {
+  background-color: #f2eddc;
+}
+
+.pagination-active {
+  background-color: #d9c3a9;
+  color: #4f5955;
+  font-weight: 600;
+}
+
+.pagination-disabled {
+  color: #9c9ea6;
+  cursor: not-allowed;
+  pointer-events: none;
+}

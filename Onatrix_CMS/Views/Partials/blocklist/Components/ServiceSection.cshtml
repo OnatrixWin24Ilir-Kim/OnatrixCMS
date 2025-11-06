@@ -2,35 +2,44 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
 
 @{
-
-	var content = (ContentModels.ServiceSection)Model.Content;
+    var content = (ContentModels.ServiceSection)Model.Content;
     var settings = Model.Settings as ContentModels.ServiceSettings;
-
     var sectionColor = settings?.ServiceBgColor?.Color ?? "ffffff";
-
 
     var current = Umbraco.AssignedContentItem;
     var siteRoot = current?.Root();
     var servicePage = siteRoot?.Children<ServicePage>()?.FirstOrDefault();
-    var items = servicePage?.Children<ServiceDetail>()?.OrderByDescending(x => x.CreateDate).ToList() ?? new List<ServiceDetail>();
+    var allItems = servicePage?.Children<ServiceDetail>()?.OrderByDescending(x => x.CreateDate).ToList() ?? new List<ServiceDetail>();
 
+    // Pagination logic
+    var pageSize = 6;
+    var currentPage = 1;
+    
+    if (Context.Request.Query.ContainsKey("page"))
+    {
+        int.TryParse(Context.Request.Query["page"], out currentPage);
+        if (currentPage < 1) currentPage = 1;
+    }
 
+    var totalItems = allItems.Count;
+    var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+    
+    if (currentPage > totalPages && totalPages > 0) currentPage = totalPages;
+    
+    var items = allItems.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
 }
+
 <section class="py-[4rem] bg-[@sectionColor]">
     <div class="max-w-7xl mx-auto px-4">
         <div class="flex flex-col gap-2 items-center text-center">
-
-            @if (settings.ShowServiceLabel)
+            @if (settings?.ShowServiceLabel == true)
             {
-            <p class="text-sm text-secondary font-semibold uppercase m-0">@content.ServiceLabel</p>
-
-                
+                <p class="text-sm text-secondary font-semibold uppercase m-0">@content.ServiceLabel</p>
             }
             <h2 class="text-[2.5rem] text-primary font-bold leading-tight m-0">@Html.Raw(content.ServiceTitle)</h2>
         </div>
 
         <div class="mt-5 grid grid-cols-3 gap-4">
-
             @if (items.Any())
             {
                 @foreach(var item in items)
@@ -40,15 +49,69 @@
                             <h4 class="service-card-title p-[1.5rem]">@item.Name()</h4>
                             <img src="@(item.ServiceDetailThumbnail?.Url() ?? "/images/services/services-1.png")" class="block w-full h-[220px] object-cover"/>
                             <p class="rte text-sm p-[1.5rem]">@item.ServiceDetailExcerpt</p>
-                </a>
-            </div>
+                        </a>
+                    </div>
                 }
             }
             else
             {
                 <p>No Services Available</p>
             }
-
         </div>
+
+        @* Pagination - Only show if more than 6 items *@
+        @if (totalPages > 1)
+        {
+            <div class="flex justify-center items-center gap-3 mt-12">
+                @* Previous Button *@
+                @if (currentPage > 1)
+                {
+                    <a href="?page=@(currentPage - 1)" class="w-12 h-12 flex items-center justify-center rounded-full text-[#4f5955] hover:bg-[#f2eddc] transition-all text-sm">
+                        Prev
+                    </a>
+                }
+                else
+                {
+                    <span class="w-12 h-12 flex items-center justify-center rounded-full text-[#9c9ea6] cursor-not-allowed text-sm">
+                        Prev
+                    </span>
+                }
+
+                @* Page Numbers *@
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    if (i == currentPage)
+                    {
+                        <span class="flex items-center justify-center rounded-full font-semibold" 
+                              style="width: 45px; height: 45px; background-color: #d9c3a9; color: #4f5955;">
+                            @i
+                        </span>
+                    }
+                    else
+                    {
+                        <a href="?page=@i" class="flex items-center justify-center rounded-full transition-all" 
+                           style="width: 45px; height: 45px; text-decoration: none; color: #4f5955;"
+                           onmouseover="this.style.backgroundColor='#f2eddc'" 
+                           onmouseout="this.style.backgroundColor='transparent'">
+                            @i
+                        </a>
+                    }
+                }
+
+                @* Next Button *@
+                @if (currentPage < totalPages)
+                {
+                    <a href="?page=@(currentPage + 1)" class="w-12 h-12 flex items-center justify-center rounded-full text-[#4f5955] hover:bg-[#d9c3a9] transition-all text-sm">
+                        Next
+                    </a>
+                }
+                else
+                {
+                    <span class="w-12 h-12 flex items-center justify-center rounded-full text-[#9c9ea6] cursor-not-allowed text-sm">
+                        Next
+                    </span>
+                }
+            </div>
+        }
     </div>
 </section>
