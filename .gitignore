@@ -315,4 +315,4 @@ jspm_packages/
 
 # DynamoDB Local files
 .dynamodb/
-Onatrix_CMS/umbraco/Data/TEMP/
+Onatrix_CMS/umbraco/Data/
