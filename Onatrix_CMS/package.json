@@ -1,20 +1,60 @@
 {
-  "name": "onatrix_cms",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "npx tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/styles.css",
-    "watch": "npx tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/styles.css --watch",
-    "build:css": "npx tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/styles.css",
-    "watch:css": "npx tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/styles.css --watch"
+  "$schema": "appsettings-schema.json",
+  "AzureKeyVaultEndpoint": "https://onatrix-key-vault.vault.azure.net/",
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Warning",
+        "Microsoft.Hosting.Lifetime": "Information",
+        "System": "Warning"
+      }
+    }
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-    "@tailwindcss/cli": "^4.1.16",
-    "tailwindcss": "^4.1.16"
+  "Umbraco": {
+    "Storage": {
+      "AzureBlob": {
+        "Media": {
+          "ConnectionString": "placeholder",
+          "ContainerName": "placeholder"
+        }
+      }
+    },
+    "CMS": {
+      "Global": {
+        "Id": "9cadaa62-aab4-4fcd-a5a5-49a27b8c44ae",
+        "UseHttps": true,
+        "SanitizeTinyMce": true,
+        "MainDomLock": "FileSystemMainDomLock"
+      },
+      "Hosting": {
+        "LocalTempStorageLocation": "EnvironmentTemp"
+      },
+      "Examine": {
+        "LuceneDirectoryFactory": "SyncedTempFileSystemDirectoryFactory"
+      },
+      "Content": {
+        "AllowEditInvariantFromNonDefault": true,
+        "ContentVersionCleanupPolicy": {
+          "EnableCleanup": true
+        }
+      },
+      "Unattended": {
+        "UpgradeUnattended": true
+      },
+      "WebRouting": {
+        "UmbracoApplicationUrl": "https://onatrix-web-cms-dqh8d9d0hmeje9f0.swedencentral-01.azurewebsites.net/"
+      },
+      "Security": {
+        "AllowConcurrentLogins": false
+      },
+      "ModelsBuilder": {
+        "ModelsMode": "SourceCodeAuto"
+      }
+    }
+  },
+  "ConnectionStrings": {
+    "umbracoDbDSN": "",
+    "umbracoDbDSN_ProviderName": "Microsoft.Data.SqlClient"
   }
 }
