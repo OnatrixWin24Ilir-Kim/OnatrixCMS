@@ -9,6 +9,7 @@
 @import './about.css';
 @import './service.css';
 @import './rich-editor.css';
+@import './form.css';
 
 @theme {
   --color-primary: #4f5955;

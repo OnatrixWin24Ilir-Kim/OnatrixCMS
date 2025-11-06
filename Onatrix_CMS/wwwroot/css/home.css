@@ -124,7 +124,6 @@
 .experience-form-section {
   position: relative;
   background-color: #ffffff;
-  overflow: hidden;
 }
 
 /* Background Image */
@@ -159,6 +158,7 @@
   grid-template-columns: 1fr;
   gap: 3rem;
   align-items: start;
+  position: relative;
 }
 
 @media (min-width: 992px) {
@@ -252,16 +252,27 @@
 
 /* Right Column - Form */
 .callback-form-wrapper {
+  max-width: 490px;
   background-color: #fff;
   padding: 3rem 2.5rem;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   margin: 4rem 0;
+  position: absolute;
+  right: 0;
+  top: -120px;
+  z-index: 111;
+  height: auto;
 }
 
 @media (max-width: 991px) {
   .callback-form-wrapper {
     margin: 0 0 4rem 0;
+  }
+  .callback-form-wrapper {
+    margin-top: 3rem;
+
+    position: relative;
   }
 }
 
