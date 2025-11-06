@@ -1,0 +1,33 @@
+@using Microsoft.AspNetCore.Components.Forms
+@model Onatrix_CMS.ViewModels.CallBackFormEmailViewModel
+
+
+
+@using (Html.BeginUmbracoForm(
+            "HandleEmailForm",
+            "Form",
+            FormMethod.Post,
+            new
+            {
+                novalidate = true,
+                Id = "emailForm",
+                Class = "email-subscription-form submit-form",
+            }))
+{
+
+    <div class="email-subscription-input-wrapper">
+        <!-- Email -->
+        <div class="form-group">
+            <label class="form-label sr-only" asp-for="SubscriptionEmail"></label>
+            <input asp-for="SubscriptionEmail" type="text" class="form-input"
+                   placeholder="@Html.DisplayNameFor(x => x.SubscriptionEmail)"/>
+            <span asp-validation-for="SubscriptionEmail"></span>
+            <button type="submit" class="email-subscription-submit-btn" aria-label="Submit">
+                <svg class="email-subscription-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+}

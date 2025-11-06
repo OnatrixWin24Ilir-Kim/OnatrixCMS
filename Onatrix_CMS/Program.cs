@@ -13,6 +13,8 @@ builder
     .Build();
 
 builder.Services.AddScoped<FormSubmissionsServices>();
+builder.Services.AddScoped<FormSubmissionEmailService>();
+builder.Services.AddScoped<FormSubmissionQuestionService>();
 
 WebApplication app = builder.Build();
 

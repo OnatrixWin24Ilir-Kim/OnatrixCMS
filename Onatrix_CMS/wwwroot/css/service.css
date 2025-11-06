@@ -49,6 +49,10 @@
   width: 100%;
 }
 
+.form-group {
+  position: relative;
+}
+
 .email-subscription-input {
   width: 100%;
   padding: 0.875rem 3rem 0.875rem 1rem;
@@ -75,7 +79,7 @@
 .email-subscription-submit-btn {
   position: absolute;
   right: 0.5rem;
-  top: 50%;
+  top: 23.39px; /* Adjust this value to vertically center the icon */
   transform: translateY(-50%);
   background: none;
   border: none;

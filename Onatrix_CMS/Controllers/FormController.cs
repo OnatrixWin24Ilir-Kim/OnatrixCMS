@@ -18,7 +18,9 @@ public class FormController(
     AppCaches appCaches,
     IProfilingLogger profilingLogger,
     IPublishedUrlProvider publishedUrlProvider,
-    FormSubmissionsServices formSubmissionsServices
+    FormSubmissionsServices formSubmissionsServices,
+    FormSubmissionEmailService formSubmissionEmailService,
+    FormSubmissionQuestionService formSubmissionQuestionService
 )
     : SurfaceController(
         umbracoContextAccessor,
@@ -29,9 +31,9 @@ public class FormController(
         publishedUrlProvider
     )
 {
-    // GET
-
-    public IActionResult HandleCallBackForm(CallbackFormViewModel model)
+    // Contact Form and Reqeust a call back Form
+    [HttpPost]
+    public IActionResult HandleCallBackForm(CallbackFormViewModel callbackFormViewModel)
     {
         // If not valid, send user back to Umbraco page with an error
         if (!ModelState.IsValid)
@@ -39,16 +41,59 @@ public class FormController(
             return CurrentUmbracoPage();
         }
 
-        var result = formSubmissionsServices.SaveCallBackRequest(model);
+        var result = formSubmissionsServices.SaveCallBackRequest(callbackFormViewModel);
 
         if (!result)
         {
-            TempData["FormError"] = "Error, something went wrong, buy me an Pizza"; 
+            TempData["FormError"] = "Error, something went wrong, buy me an Pizza";
             return CurrentUmbracoPage();
         }
-        
-        
-        TempData["FormSuccess"] = "Thank you for buying the Pizza"; 
+
+        TempData["FormSuccess"] = "Thank you for buying the Pizza";
+        return RedirectToCurrentUmbracoPage();
+    }
+
+    // Email Form
+    public IActionResult HandleEmailForm(CallBackFormEmailViewModel callBackFormEmailViewModel)
+    {
+        // If not valid, send user back to Umbraco page with an error
+        if (!ModelState.IsValid)
+        {
+
+            return CurrentUmbracoPage();
+        }
+
+        var result = formSubmissionEmailService.SaveCallBackRequest(callBackFormEmailViewModel);
+
+        if (!result)
+        {
+            TempData["FormErrorEmail"] = "Error, something went wrong, Buy me Pepsimax";
+            return CurrentUmbracoPage();
+        }
+
+        TempData["FormSuccessEmail"] = "Thank you for all the data, I got you now!! MUHAHAHHA";
+        return RedirectToCurrentUmbracoPage();
+    }
+
+    // Have a question form? Service Form?
+    [HttpPost]
+    public IActionResult HandleQuestionForm(CallBackFormQuestionServiceViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            TempData["FormErrorQuestion"] = "Please fill out all the required fields.";
+            return CurrentUmbracoPage();
+        }
+
+        if (formSubmissionQuestionService.SaveCallBackRequest(model))
+        {
+            TempData["FormSuccessQuestion"] = "Your question has been submitted successfully!. I LOVE YOU!";
+        }
+        else
+        {
+            TempData["FormErrorQuestion"] = "Something went wrong, Ask chat GPT :)";
+        }
+
         return RedirectToCurrentUmbracoPage();
     }
 }
