@@ -16,6 +16,15 @@ builder.Services.AddScoped<FormSubmissionsServices>();
 builder.Services.AddScoped<FormSubmissionEmailService>();
 builder.Services.AddScoped<FormSubmissionQuestionService>();
 
+// Register Email Service
+builder.Services.AddHttpClient<UmbracoEmailService>(client =>
+{
+    client.BaseAddress = new Uri(
+        builder.Configuration["OnatrixEmailService:BaseUrl"]
+            ?? throw new InvalidOperationException("Email Base url is missing.")
+    );
+});
+
 WebApplication app = builder.Build();
 
 await app.BootUmbracoAsync();
