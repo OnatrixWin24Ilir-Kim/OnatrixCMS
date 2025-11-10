@@ -35,9 +35,6 @@
 }
 
 .contact-form-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1rem;
   position: relative;
   z-index: 10;
 }
@@ -216,4 +213,14 @@
   .contact-form-title {
     font-size: 28px;
   }
+}
+
+/* Form Inputs and Forms */
+.contact-form-inputs {
+  @apply sm:flex-col xs:flex-col xxs:flex-col
+  md:flex-row lg:flex-row;
+}
+
+.form-group {
+  @apply w-full;
 }

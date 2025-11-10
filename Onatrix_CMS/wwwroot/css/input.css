@@ -30,6 +30,14 @@
   --text-rte-md-rich-editor: 1.25rem;
   --text-rte-sm-rich-editor: 1rem;
   --text-rte-xs-rich-editor: 0.875rem;
+
+  /* ===================================
+   Custom Breakpoints
+   =================================== */
+  --breakpoint-xxs: 20rem;
+  --breakpoint-xs: 30rem;
+  --breakpoint-2xl: 100rem;
+  --breakpoint-3xl: 120rem;
 }
 
 body {

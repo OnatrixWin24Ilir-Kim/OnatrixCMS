@@ -369,3 +369,11 @@
   color: #d9534f;
   margin-left: 0.25rem;
 }
+
+/* Hero Section Background Image */
+.hero-section-bg {
+  @apply w-full h-full object-cover bg-no-repeat
+  xs:hidden
+  sm:block absolute opacity-30
+  md:opacity-100;
+}
