@@ -7,13 +7,11 @@
 
 
 }
-<section class="relative py-[7rem] xs:py-16 md:py-32 ">
-    <div class="absolute hero-section-bg ">
-        @if (content.HeroBgImage != null)
-        {
-            <img src="@content.HeroBgImage.Url()" class="w-full h-full object-cover"  alt="Bg Image"/>
-        }
-    </div>
+<section class="relative py-[7rem] xs:py-16 md:py-32 overflow-hidden ">
+    @if (content.HeroBgImage != null)
+    {
+        <img src="@content.HeroBgImage.Url()" class="hero-section-bg" alt="Bg Image"/>
+    }
 
     <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="w-5/12 flex flex-col gap-8 xs:w-full xxs:w-full md:w-6/12">

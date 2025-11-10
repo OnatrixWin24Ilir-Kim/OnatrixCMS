@@ -377,10 +377,10 @@
 
 /* Hero Section Background Image */
 .hero-section-bg {
-  @apply w-full inset-0 h-full
+  @apply w-full h-full inset-0 absolute object-cover
   xs:hidden
   xxs:hidden
-  sm:block absolute opacity-30
-  md:opacity-100 object-cover 
-  2xl:h-fit;
+  sm:block opacity-30
+  md:opacity-100
+  xl:object-top;
 }
