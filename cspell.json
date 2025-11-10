@@ -3,7 +3,11 @@
   "ignorePaths": [],
   "dictionaryDefinitions": [],
   "dictionaries": [],
-  "words": ["evenodd"],
+  "words": [
+    "evenodd",
+    "Onatrix",
+    "Umbraco"
+  ],
   "ignoreWords": [],
   "import": []
 }

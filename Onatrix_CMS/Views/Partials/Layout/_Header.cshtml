@@ -20,7 +20,7 @@
     var selection = Model.Root()?.Children?.Where(x => x.IsVisible()).ToArray();
 }
 
-<header x-data="{ open: false }" class="relative shadow-sm z-[999] pr-4 w-full">
+<header x-data="{ open: false }" class="relative shadow-sm z-[999] pr-4 w-full items-center mx-auto">
     <nav class="max-w-7xl mx-auto flex items-center justify-between p-4">
         
         @if (logo != null)
@@ -37,7 +37,7 @@
         }
 
         <!-- Desktop Menu -->
-        <div class="hidden lg:flex items-center gap-8">
+        <div class="hidden lg:flex items-center gap-8 w-full justify-center">
             @if (selection?.Length > 0)
             {   
                 <ul class="flex items-center gap-8">
@@ -49,9 +49,6 @@
                     }
                 </ul>
             }
-            <div class="flex items-center">
-                <i class="fa-solid fa-magnifying-glass text-lg text-primary"></i>
-            </div>
         </div>
 
         <!-- Hamburger Button -->
@@ -60,6 +57,10 @@
                 <i class="fa-solid fa-bars text-2xl"></i>
             </button>
         </div>
+        <!-- Search Icon-->
+        <div class="flex items-center justify-between search-icon">
+            <i class="fa-solid fa-magnifying-glass text-lg text-primary"></i>
+        </div>        
     </nav>
 
     <!-- Mobile Menu -->
