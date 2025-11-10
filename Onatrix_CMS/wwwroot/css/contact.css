@@ -224,3 +224,33 @@
 .form-group {
   @apply w-full;
 }
+
+.contact-h2-person {
+  @apply text-3xl font-bold text-text leading-tight mb-8 max-w-full
+  xxs:text-center xs:text-center sm:text-left;
+}
+
+.contact-person-section-container {
+  @apply relative flex items-center py-0 min-h-180 justify-center
+  xxs:flex-col xs:flex-col xs:py-16 xs:items-center sm:flex-col;
+}
+
+.contact-image-container {
+  @apply absolute left-0 bottom-0 w-6/12 flex
+  xxs:relative xs:relative sm:absolute md:absolute lg:absolute;
+}
+
+.contact-image-container img {
+  @apply w-full h-auto block object-cover
+  xs:pt-16;
+}
+
+.contact-details-container {
+  @apply w-6/12 ml-auto flex flex-col items-start py-16 max-w-120 justify-center
+  xxs:max-w-full xxs:w-full xxs:px-6
+  xs:w-full xs:max-w-full xs:items-center sm:w-6/12 sm:items-start md:max-w-120 md:py-16;
+}
+
+.contact-details-wrapper {
+  @apply flex flex-col gap-6;
+}
