@@ -19,17 +19,19 @@
 	<link rel="stylesheet" href="~/css/styles.css">
 	<script src="~/js/scripts.js"></script>
 </head>
-<body>
-	<partial name="Partials/Layout/_Topbar" />
-	<partial name="Partials/Layout/_Header" />
-	
-	@RenderBody()
+<body class="">
+<div class="grid grid-row-1 min-h-screen p-0 m-0 max-w-full m-auto overflow-hidden">
+    <partial name="Partials/Layout/_Topbar" />
+    <partial name="Partials/Layout/_Header" />
+    
+        @RenderBody()
 
-	<partial name="Partials/Layout/_PartnerLogos" />
-	<partial name="Partials/Layout/_Footer" />
-
+    <partial name="Partials/Layout/_PartnerLogos" />
+    <partial name="Partials/Layout/_Footer" />
+</div>
 
 <script src="~/js/form.js" asp-append-version="true"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 </body>
 </html>

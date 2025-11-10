@@ -20,38 +20,63 @@
     var selection = Model.Root()?.Children?.Where(x => x.IsVisible()).ToArray();
 }
 
-<header class="relative shadow-sm z-[999]">
+<header x-data="{ open: false }" class="relative shadow-sm z-[999] pr-4 w-full">
     <nav class="max-w-7xl mx-auto flex items-center justify-between p-4">
         
         @if (logo != null)
         {   
             <a href="/" class="flex-shrink-0">
-                <img src="@logo.Url()" alt="Onatrix" />
+                <img src="@logo.Url()" alt="Onatrix" class="h-8 w-auto" />
             </a>
         }
         else
         {
-            <a href="/" class="flex-shrink-0">
+            <a href="/" class="flex-shrink-0 font-bold text-xl">
                 Onatrix
             </a>
         }
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center gap-8">
+            @if (selection?.Length > 0)
+            {   
+                <ul class="flex items-center gap-8">
+                    @foreach (var item in selection)
+                    {
+                        <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
+                            <a href="@item.Url()" class="font-bold text-primary hover:text-secondary transition-colors px-4">@item.Name</a>
+                        </li>
+                    }
+                </ul>
+            }
+            <div class="flex items-center">
+                <i class="fa-solid fa-magnifying-glass text-lg text-primary"></i>
+            </div>
+        </div>
+
+        <!-- Hamburger Button -->
+        <div class="hamburger-button-menu">
+            <button x-on:click="open = !open" class=" text-primary focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div x-show="open" x-on:click.away="open = false" class="lg:hidden absolute top-full left-0 w-full bg-white shadow-md">
         @if (selection?.Length > 0)
         {   
-            <ul class="flex items-center gap-8">
+            <ul class="flex flex-col items-center gap-4 py-4">
                 @foreach (var item in selection)
                 {
                     <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
-                        <a href="@item.Url()" class="font-bold text-primary hover:text-secondary transition-colors px-4">@item.Name</a>
+                        <a href="@item.Url()" class="font-bold text-primary hover:text-secondary transition-colors px-4 py-2 block">@item.Name</a>
                     </li>
                 }
             </ul>
         }
-
-
-
-        <div class="flex items-center">
+        <div class="flex items-center justify-center border-t border-gray-200 py-4">
             <i class="fa-solid fa-magnifying-glass text-lg text-primary"></i>
         </div>
-        
-    </nav>
+    </div>
 </header>

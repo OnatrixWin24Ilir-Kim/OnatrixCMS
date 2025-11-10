@@ -29,3 +29,11 @@
 .footer-link:hover {
   text-decoration: underline;
 }
+
+/* ===================================
+   Header Section
+   =================================== */
+
+.hamburger-button-menu {
+  @apply lg:hidden;
+}
