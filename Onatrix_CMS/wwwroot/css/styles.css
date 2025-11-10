@@ -229,14 +229,17 @@
   .static {
     position: static;
   }
-  .inset-0 {
-    inset: calc(var(--spacing) * 0);
-  }
   .top-full {
     top: 100%;
   }
+  .bottom-\[-1\.5rem\] {
+    bottom: -1.5rem;
+  }
   .left-0 {
     left: calc(var(--spacing) * 0);
+  }
+  .left-\[-1\.5rem\] {
+    left: -1.5rem;
   }
   .z-10 {
     z-index: 10;
@@ -252,9 +255,6 @@
     @media (width >= 30rem) {
       max-width: 30rem;
     }
-    @media (width >= 40rem) {
-      max-width: 40rem;
-    }
     @media (width >= 48rem) {
       max-width: 48rem;
     }
@@ -263,6 +263,9 @@
     }
     @media (width >= 80rem) {
       max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
     }
     @media (width >= 100rem) {
       max-width: 100rem;
@@ -273,6 +276,9 @@
   }
   .m-0 {
     margin: calc(var(--spacing) * 0);
+  }
+  .m-0\! {
+    margin: calc(var(--spacing) * 0) !important;
   }
   .m-auto {
     margin: auto;
@@ -390,6 +396,9 @@
   }
   .max-w-\[500px\] {
     max-width: 500px;
+  }
+  .max-w-fit {
+    max-width: fit-content;
   }
   .max-w-full {
     max-width: 100%;
@@ -781,6 +790,11 @@
       outline-style: none;
     }
   }
+  .xxs\:hidden {
+    @media (width >= 20rem) {
+      display: none;
+    }
+  }
   .xxs\:w-full {
     @media (width >= 20rem) {
       width: 100%;
@@ -802,118 +816,138 @@
     }
   }
   .sm\:hidden {
-    @media (width >= 40rem) {
+    @media (width >= 48rem) {
       display: none;
     }
   }
+  .sm\:max-w-1\/2 {
+    @media (width >= 48rem) {
+      max-width: calc(1/2 * 100%);
+    }
+  }
   .sm\:grid-cols-2 {
-    @media (width >= 40rem) {
+    @media (width >= 48rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
+  .md\:bottom-\[-1\.5rem\] {
+    @media (width >= 64rem) {
+      bottom: -1.5rem;
+    }
+  }
   .md\:block {
-    @media (width >= 48rem) {
+    @media (width >= 64rem) {
       display: block;
     }
   }
   .md\:h-16 {
-    @media (width >= 48rem) {
+    @media (width >= 64rem) {
       height: calc(var(--spacing) * 16);
     }
   }
   .md\:w-6\/12 {
-    @media (width >= 48rem) {
+    @media (width >= 64rem) {
       width: calc(6/12 * 100%);
     }
   }
+  .md\:w-full {
+    @media (width >= 64rem) {
+      width: 100%;
+    }
+  }
+  .md\:max-w-full {
+    @media (width >= 64rem) {
+      max-width: 100%;
+    }
+  }
   .md\:gap-12 {
-    @media (width >= 48rem) {
+    @media (width >= 64rem) {
       gap: calc(var(--spacing) * 12);
     }
   }
   .md\:py-32 {
-    @media (width >= 48rem) {
+    @media (width >= 64rem) {
       padding-block: calc(var(--spacing) * 32);
     }
   }
   .md\:text-4xl {
-    @media (width >= 48rem) {
+    @media (width >= 64rem) {
       font-size: var(--text-4xl);
       line-height: var(--tw-leading, var(--text-4xl--line-height));
     }
   }
   .lg\:order-1 {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       order: 1;
     }
   }
   .lg\:order-2 {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       order: 2;
     }
   }
   .lg\:mb-12 {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       margin-bottom: calc(var(--spacing) * 12);
     }
   }
   .lg\:block {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       display: block;
     }
   }
   .lg\:flex {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       display: flex;
     }
   }
   .lg\:hidden {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       display: none;
     }
   }
   .lg\:w-auto {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       width: auto;
     }
   }
   .lg\:max-w-\[400px\] {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       max-width: 400px;
     }
   }
   .lg\:flex-1 {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       flex: 1;
     }
   }
   .lg\:flex-\[0_0_40\%\] {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       flex: 0 0 40%;
     }
   }
   .lg\:grid-cols-3 {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
   .lg\:flex-row {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       flex-direction: row;
     }
   }
   .lg\:gap-10 {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       gap: calc(var(--spacing) * 10);
     }
   }
   .lg\:gap-16 {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       gap: calc(var(--spacing) * 16);
     }
   }
   .lg\:pl-20 {
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       padding-left: calc(var(--spacing) * 20);
     }
   }
@@ -927,16 +961,20 @@
 }
 .statistics-background-pattern {
   position: absolute;
-  top: 0;
+  top: -8rem;
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: 90%;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.1;
+  opacity: 0.7;
   pointer-events: none;
   z-index: 0;
+}
+@media (max-width: 991px) {
+  .statistics-background-pattern {
+    background-size: 80%;
+  }
 }
 .statistics-container {
   position: relative;
@@ -1223,19 +1261,25 @@
 }
 .hero-section-bg {
   position: absolute;
+  inset: calc(var(--spacing) * 0);
   height: 100%;
   width: 100%;
-  background-repeat: no-repeat;
   object-fit: cover;
   opacity: 30%;
+  @media (width >= 20rem) {
+    display: none;
+  }
   @media (width >= 30rem) {
     display: none;
   }
-  @media (width >= 40rem) {
+  @media (width >= 48rem) {
     display: block;
   }
-  @media (width >= 48rem) {
+  @media (width >= 64rem) {
     opacity: 100%;
+  }
+  @media (width >= 100rem) {
+    height: fit-content;
   }
 }
 .contact-form-section {
@@ -1420,13 +1464,13 @@
   @media (width >= 30rem) {
     flex-direction: column;
   }
-  @media (width >= 40rem) {
+  @media (width >= 48rem) {
     flex-direction: column;
   }
-  @media (width >= 48rem) {
+  @media (width >= 64rem) {
     flex-direction: row;
   }
-  @media (width >= 64rem) {
+  @media (width >= 80rem) {
     flex-direction: row;
   }
 }
@@ -1457,8 +1501,25 @@
   text-decoration: underline;
 }
 .hamburger-button-menu {
+  @media (width >= 80rem) {
+    display: none;
+  }
+}
+.search-icon {
+  @media (width >= 20rem) {
+    display: none;
+  }
+  @media (width >= 30rem) {
+    display: none;
+  }
+  @media (width >= 48rem) {
+    display: none;
+  }
   @media (width >= 64rem) {
     display: none;
+  }
+  @media (width >= 80rem) {
+    display: block;
   }
 }
 .ceo-quote-section {

@@ -37,3 +37,7 @@
 .hamburger-button-menu {
   @apply lg:hidden;
 }
+
+.search-icon {
+  @apply sm:hidden xs:hidden xxs:hidden md:hidden lg:block;
+}
