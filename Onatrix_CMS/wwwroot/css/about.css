@@ -30,12 +30,23 @@
   align-items: stretch;
 }
 
+/* Responsive Styles */
+.ceo-quote-wrapper {
+  @apply xxs:flex-col sm:flex-row;
+}
+
 .ceo-image-column {
   flex: 0 0 30%;
   max-width: 370px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+/* Responsive Styles */
+.ceo-image-column {
+  @apply xxs:w-full xs:items-center xs:max-w-full
+  sm:justify-start;
 }
 
 .ceo-image {
@@ -54,6 +65,10 @@
 
 .ceo-content-column {
   flex: 1;
+}
+
+.ceo-content-column {
+  @apply xxs:text-balance xxs:mx-4 sm:mt-0 wrap-break-word;
 }
 
 .ceo-quote {
@@ -81,4 +96,9 @@
 
 .ceo-body-content p:last-child {
   margin-bottom: 0;
+}
+
+.about-page-review-section {
+  @apply flex flex-wrap gap-4 items-center justify-start
+  xxs:flex-col sm:flex-row;
 }
