@@ -23,27 +23,19 @@
 {
     <section class="contact-person-section py-16 bg-[#f7f7f7]">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-row items-center gap-16" style="flex-direction: row; align-items: center;">
-                @* Fallback to inline styles for guaranteed layout *@
+            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
 
-                <!-- Contact Person Image (with background and dots already included) -->
-                <div style="flex: 0 0 40%;">
-                    <img src="@personImage"
-                         alt="Contact Person"
-                         class="w-full object-contain" style="max-width: 400px;" />
-                </div>
-
-                <!-- Contact Information -->
-                <div style="flex: 1; padding-left: 80px;">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#535656] leading-tight" style="max-width: 500px; margin-bottom: 3rem;">
+                <!-- Contact Information (First on mobile, Second on desktop) -->
+                <div class="w-full lg:order-2 lg:flex-1 lg:pl-20">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#535656] leading-tight mb-8 lg:mb-12 max-w-[500px]">
                         @personTitle
                     </h2>
 
-                    <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+                    <div class="flex flex-col gap-6 lg:gap-10">
                         @if (showLocation && !string.IsNullOrEmpty(officeLocation))
                         {
                             <div class="flex items-start gap-4">
-                                <div class="flex-shrink-0" style="width: 18px; height: 18px; margin-top: 2px;">
+                                <div class="flex-shrink-0 w-[18px] h-[18px] mt-[2px]">
                                     <svg width="18" height="18" fill="#d9c3a9" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                                     </svg>
@@ -58,7 +50,7 @@
                         @if (showPhone && !string.IsNullOrEmpty(phoneNumber))
                         {
                             <div class="flex items-start gap-4">
-                                <div class="flex-shrink-0" style="width: 18px; height: 18px; margin-top: 2px;">
+                                <div class="flex-shrink-0 w-[18px] h-[18px] mt-[2px]">
                                     <svg width="18" height="18" fill="#d9c3a9" viewBox="0 0 20 20">
                                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                                     </svg>
@@ -75,7 +67,7 @@
                         @if (showEmail && !string.IsNullOrEmpty(emailAddress))
                         {
                             <div class="flex items-start gap-4">
-                                <div class="flex-shrink-0" style="width: 18px; height: 18px; margin-top: 2px;">
+                                <div class="flex-shrink-0 w-[18px] h-[18px] mt-[2px]">
                                     <svg width="18" height="18" fill="#d9c3a9" viewBox="0 0 20 20">
                                         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
@@ -91,6 +83,14 @@
                         }
                     </div>
                 </div>
+
+                <!-- Contact Person Image (Second on mobile, First on desktop) -->
+                <div class="w-full lg:w-auto lg:flex-[0_0_40%] lg:order-1">
+                    <img src="@personImage"
+                         alt="Contact Person"
+                         class="w-full h-auto object-contain max-w-full lg:max-w-[400px]" />
+                </div>
+
             </div>
         </div>
     </section>
